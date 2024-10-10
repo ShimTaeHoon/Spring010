@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<!-- 조각 만들어서 파라미터로 전달하기 -->
+
+<!-- 해당 파일안에 있는 조각을 외부 페이지에 전달 -->
+<th:block th:replace="~{ /layout/basic :: setContent(~{this::content})}">
+
+<!-- content라는 이름으로 조각 만들기 -->
+<!-- content가 상단의 setContent로 전달이 됨 -->
+<!-- <h1 th:fragment="content">Main Page</h1> -->
+
+<th:block th:fragment="content">
+
+<!--인증 객체 정보-->
+<b>Authenticated DTO:</b>
+<div sec:authentication="principal"></div>
+
+<!-- 사용자 아이디 -->
+<b>Authenticated username:</b>
+<div sec:authentication="name"></div>
+
+<!-- 사용자가 가지고 있는 권한 -->
+<b>Authenticated user role:</b>
+<div sec:authentication="principal.authorities"></div>
+
+
+</th:block>
+</th:block>
